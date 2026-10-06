@@ -1,184 +1,134 @@
-<html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>臻世好的个人网站</title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#165DFF',
-            secondary: '#36CFC9',
-            dark: '#1D2129',
-            light: '#F2F3F5'
-          },
-          fontFamily: {
-            inter: ['Inter', 'sans-serif'],
-          },
-        },
-      }
-    }
-  </script>
-  
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-      .text-shadow {
-        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-      .transition-custom {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-    }
-  </style>
-  
-  <style>
-    html {
-      scroll-behavior: smooth;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      position: relative;
-    }
-    
-    .skill-tag {
-      background-color: #e6f7ff;
-      color: #165DFF;
-      padding: 8px 16px;
-      border-radius: 20px;
-      display: inline-block;
-      margin: 0 8px 12px 0;
-      transition: all 0.3s ease;
-    }
-    
-    .skill-tag:hover {
-      background-color: #165DFF;
-      color: white;
-      transform: translateY(-2px);
-    }
-    
-    .nav-scrolled {
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="text-dark font-inter min-h-screen m-0 p-0" style="background-image: url('个性标签.png'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;">
-  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
-    <div class="container mx-auto px-4 md:px-8">
-      <div class="flex justify-between items-center">
-        <a href="#home" class="text-2xl font-bold text-primary flex items-center">
-          <img src="臻世好.png" alt="臻世好" class="w-10 h-10 rounded-full mr-2 border-2 border-white shadow-sm">
+  <nav id="navbar" class="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="#home" class="navbar-brand">
+          <img src="zsh.png" alt="臻世好" width="40" height="40">
           臻世好
         </a>
-        
-        <div class="hidden md:flex space-x-8">
-          <a href="#home" class="text-dark hover:text-primary transition-custom">首页</a>
-          <a href="#about" class="text-dark hover:text-primary transition-custom">关于我</a>
-          <a href="#skills" class="text-dark hover:text-primary transition-custom">技能</a>
-          <a href="#contact" class="text-dark hover:text-primary transition-custom">联系方式</a>
+
+        <div class="nav-links">
+          <a href="#home">首页</a>
+          <a href="#about">关于我</a>
+          <a href="#skills">技能</a>
+          <a href="#projects">项目</a>
+          <a href="#contact">联系方式</a>
         </div>
-        
-        <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
-          <i class="fa fa-bars text-xl"></i>
-        </button>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="菜单" aria-expanded="false">&#9776;</button>
       </div>
-      
-      <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
-        <div class="flex flex-col space-y-4">
-          <a href="#home" class="text-dark hover:text-primary transition-custom">首页</a>
-          <a href="#about" class="text-dark hover:text-primary transition-custom">关于我</a>
-          <a href="#skills" class="text-dark hover:text-primary transition-custom">技能</a>
-          <a href="#contact" class="text-dark hover:text-primary transition-custom">联系方式</a>
+
+      <div id="mobile-menu" class="mobile-menu">
+        <div>
+          <a href="#home">首页</a>
+          <a href="#about">关于我</a>
+          <a href="#skills">技能</a>
+          <a href="#projects">项目</a>
+          <a href="#contact">联系方式</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 bg-white/90">
-    <div class="container mx-auto px-4 md:px-8">
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-dark mb-4">
-            你好，我是<span class="text-primary">臻世好</span>
-          </h1>
-          <h2 class="text-[clamp(1.2rem,3vw,1.8rem)] text-gray-600 mb-6">Python &amp; 前端开发者</h2>
-          <p class="text-gray-700 text-lg mb-8 max-w-lg">热衷于计算机和编程的在校中学生，不断学习、创造与创新。</p>
+  <section id="home" class="hero">
+    <div class="hero-decorations">
+      <div class="hero-deco-circle"></div>
+      <div class="hero-deco-circle"></div>
+      <div class="hero-deco-circle"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text reveal">
+          <h1>你好，我是<span class="highlight">臻世好</span></h1>
+          <h2>Python &amp; 前端开发者</h2>
+          <p>热衷于计算机和编程的在校中学生，不断学习、创造与创新。</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">联系我</a>
+            <a href="#about" class="btn btn-outline">了解更多</a>
+          </div>
         </div>
-        
-        <div class="md:w-1/2 flex justify-center">
-          <div class="relative">
-            <div class="absolute -inset-4 bg-primary/10 blur-2xl opacity-70 animate-pulse"></div>
-            <img src="臻世好.png" alt="臻世好" class="w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-white shadow-xl relative z-10">
+
+        <div class="hero-image-wrapper reveal reveal-delay-2">
+          <div class="hero-image-container">
+            <div class="hero-image-glow"></div>
+            <div class="hero-image-ring"></div>
+            <img src="zsh.png" alt="臻世好" width="320" height="320">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="py-20 bg-white/90">
-    <div class="container mx-auto px-4 md:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">关于我</h2>
-        <div class="w-20 h-1 bg-primary mx-auto"></div>
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2 class="section-title">关于我</h2>
+        <div class="section-divider"></div>
       </div>
-      
-      <div class="flex flex-col items-center">
-        <div class="w-full max-w-3xl">
-          <h3 class="text-2xl font-semibold mb-4">我是一名积极进取的开发者和学生</h3>
-          <p class="text-gray-700 mb-6 leading-relaxed">专注于创建美观、现代、简洁、实用的网站和应用程序，坚持用户体验优先。</p>
-          <p class="text-gray-700 mb-8 leading-relaxed">高举中国特色社会主义伟大旗帜，坚定不移地贯彻党的路线，坚持四项基本原则，坚持改革开放，在建设社会主义现代化实践中的，成为有理想、有道德、有文化、有纪律的青年，建设国家，自力更生，踊跃投身全面建设社会主义现代化国家，为实现“两个一百年”奋斗目标、实现中华民族伟大复兴的中国梦贡献智慧和力量。</p>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div class="flex items-start">
-              <div class="bg-primary/10 p-3 rounded-lg mr-4 flex-shrink-0 w-12 h-12 flex items-center justify-center">
-                <i class="fa fa-paint-brush text-primary text-xl"></i>
+
+      <div class="about-content">
+        <div class="about-text reveal reveal-delay-1">
+          <h3>我是一名积极进取的开发者和学生</h3>
+          <p>专注于创建美观、现代、简洁、实用的网站和应用程序，坚持用户体验优先。</p>
+          <p>高举中国特色社会主义伟大旗帜，踊跃投身全面建设社会主义现代化国家，为实现"两个一百年"奋斗目标、实现中华民族伟大复兴的中国梦贡献智慧和力量。</p>
+
+          <div class="features-grid">
+            <div class="feature-card reveal reveal-delay-2">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.49 0-.98.12-1.41.36-.44.23-.79.56-1.03.95-.24.39-.36.82-.36 1.27 0 .62.24 1.19.66 1.61.06.06.12.12.18.18H12zm-3-9.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
+                </svg>
               </div>
-              <div>
-                <h4 class="font-semibold text-lg mb-2">创意设计</h4>
-                <p class="text-gray-600">创新、现代、简洁</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="bg-primary/10 p-3 rounded-lg mr-4 flex-shrink-0 w-12 h-12 flex items-center justify-center">
-                <i class="fa fa-code text-primary text-xl"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-lg mb-2">编程开发</h4>
-                <p class="text-gray-600">设计功能强大的应用程序</p>
+              <div class="feature-body">
+                <h4>创意设计</h4>
+                <p>创新、现代、简洁</p>
               </div>
             </div>
-            
-            <div class="flex items-start">
-              <div class="bg-primary/10 p-3 rounded-lg mr-4 flex-shrink-0 w-12 h-12 flex items-center justify-center">
-                <i class="fa fa-lightbulb-o text-primary text-xl"></i>
+
+            <div class="feature-card reveal reveal-delay-2">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2v2a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3H8zm8 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2v2a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3h2z"/>
+                </svg>
               </div>
-              <div>
-                <h4 class="font-semibold text-lg mb-2">UI设计</h4>
-                <p class="text-gray-600">创建直观且令人愉悦的用户界面</p>
+              <div class="feature-body">
+                <h4>编程开发</h4>
+                <p>设计功能强大的应用程序</p>
               </div>
             </div>
-            
-            <div class="flex items-start">
-              <div class="bg-primary/10 p-3 rounded-lg mr-4 flex-shrink-0 w-12 h-12 flex items-center justify-center">
-                <i class="fa fa-cogs text-primary text-xl"></i>
+
+            <div class="feature-card reveal reveal-delay-3">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
               </div>
-              <div>
-                <h4 class="font-semibold text-lg mb-2">项目管理</h4>
-                <p class="text-gray-600">从概念到交付的全流程项目管理</p>
+              <div class="feature-body">
+                <h4>UI设计</h4>
+                <p>创建直观且令人愉悦的用户界面</p>
+              </div>
+            </div>
+
+            <div class="feature-card reveal reveal-delay-3">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                </svg>
+              </div>
+              <div class="feature-body">
+                <h4>项目管理</h4>
+                <p>从概念到交付的全流程项目管理</p>
               </div>
             </div>
           </div>
@@ -187,124 +137,168 @@
     </div>
   </section>
 
-  <section id="skills" class="py-20 bg-light/90">
-    <div class="container mx-auto px-4 md:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">我的技能</h2>
-        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+  <section id="skills" class="section skills">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2 class="section-title">我的技能</h2>
+        <div class="section-divider"></div>
       </div>
-      
-      <div class="max-w-3xl mx-auto text-center">
-        <h3 class="text-2xl font-semibold mb-8">常用程序设计语言</h3>
-        
-        <div class="flex flex-wrap justify-center">
-          <span class="skill-tag">HTML</span>
-          <span class="skill-tag">CSS</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Python</span>
+
+      <div class="skills-content reveal reveal-delay-1">
+        <h3>常用程序设计语言</h3>
+        <div class="skill-tags">
+          <span class="skill-tag"><span>HTML</span></span>
+          <span class="skill-tag"><span>CSS</span></span>
+          <span class="skill-tag"><span>JavaScript</span></span>
+          <span class="skill-tag"><span>Python</span></span>
+        </div>
+      </div>
+
+      <div class="skills-row reveal reveal-delay-1">
+        <div class="skills-content skills-content-half">
+          <h3>常用编辑器</h3>
+          <div class="skill-tags">
+            <span class="skill-tag"><span>VSCode</span></span>
+          </div>
+        </div>
+        <div class="skills-content skills-content-half">
+          <h3>常用平台</h3>
+          <div class="skill-tags">
+            <span class="skill-tag"><span>Cloudflare</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-content reveal reveal-delay-1">
+        <h3>技能领域</h3>
+        <div class="skill-tags">
+          <span class="skill-tag"><span>系统技术</span></span>
+          <span class="skill-tag"><span>前端网站</span></span>
+          <span class="skill-tag"><span>后端程序</span></span>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="py-16 bg-white/90">
-    <div class="container mx-auto px-4 md:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-4">联系方式</h2>
-        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-        <p class="text-gray-600 max-w-2xl mx-auto">欢迎通过以下方式联系我</p>
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2 class="section-title">项目</h2>
+        <div class="section-divider"></div>
       </div>
-      
-      <div class="flex justify-center">
-        <div class="bg-light p-8 rounded-lg shadow-md inline-flex items-center">
-          <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-            <i class="fa fa-envelope text-primary text-xl"></i>
+
+      <div class="projects-grid">
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-icon">
+            <img src="https://fkxz.zhshh.cn/favicon.png" alt="文件分块下载" width="32" height="32">
           </div>
-          <div>
-            <h4 class="font-semibold text-lg mb-1">邮箱</h4>
-            <a href="mailto:zhen-shi-hao@outlook.com" class="text-primary hover:underline">zhen-shi-hao@outlook.com</a>
+          <div class="project-body">
+            <h3>文件分块下载</h3>
+            <p>将大文件分块为多个小分片，支持本地合并与远程下载合并，可用于绕过文件上传大小限制或便于文件传输。</p>
+            <div class="project-links">
+              <a href="https://fkxz.zhshh.cn/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">官网</a>
+              <a href="https://github.com/zsh-cn/fkxz" target="_blank" rel="noopener" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-icon">
+            <img src="https://xtxz.cc.cd/favicon.png" alt="系统镜像下载" width="32" height="32">
+          </div>
+          <div class="project-body">
+            <h3>系统镜像下载</h3>
+            <p>下载系统镜像，安全可靠，纯净无捆绑，免费不限速。</p>
+            <div class="project-links">
+              <a href="https://xtxz.cc.cd/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">官网</a>
+              <a href="https://github.com/xtjxxz/xtxz" target="_blank" rel="noopener" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card project-card-full reveal reveal-delay-3">
+          <div class="project-icon">
+            <img src="https://github.com/favicon.ico" alt="GitHub" width="32" height="32">
+          </div>
+          <div class="project-body">
+            <h3>更多项目</h3>
+            <p>欢迎访问我的 GitHub 主页，查看更多开源项目和代码仓库。</p>
+            <div class="project-links">
+              <a href="https://github.com/zsh-cn/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">访问 GitHub</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-dark text-white py-6">
-    <div class="container mx-auto px-4 md:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-        <div>
-          <h3 class="text-xl font-bold mb-2">臻世好</h3>
-          <p class="text-gray-400 mb-4">&nbsp;一个积极进取、热爱祖国的学生和开发者</p>
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2 class="section-title">联系方式</h2>
+        <div class="section-divider"></div>
+        <p class="contact-desc">欢迎通过以下方式联系我</p>
+      </div>
+
+      <div class="contact-card-wrapper reveal reveal-delay-1">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <div class="contact-info">
+            <h4>邮箱</h4>
+            <a href="mailto:zhen-shi-hao@outlook.com">zhen-shi-hao@outlook.com</a>
+          </div>
         </div>
-        
-        <div>
-          <h3 class="text-lg font-semibold mb-2">联系邮箱</h3>
-          <ul class="space-y-2">
-            <li class="flex items-start">
-              <i class="fa fa-envelope text-primary mt-1 mr-3"></i>
-              <span class="text-gray-400">zhen-shi-hao@outlook.com</span>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <img src="https://www.bilibili.com/favicon.ico" alt="哔哩哔哩" width="24" height="24">
+          </div>
+          <div class="contact-info">
+            <h4>哔哩哔哩</h4>
+            <a href="https://space.bilibili.com/3546930323917311" target="_blank" rel="noopener">https://space.bilibili.com/3546930323917311</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>臻世好</h3>
+          <p>一个积极进取、热爱祖国的学生和开发者</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>联系邮箱</h3>
+          <ul>
+            <li>
+              <span class="icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </span>
+              <span>zhen-shi-hao@outlook.com</span>
             </li>
           </ul>
         </div>
       </div>
+
       
-      <div class="border-t border-gray-800 pt-4 text-center">
-        <p class="text-gray-500">© 2026 臻世好</p>
-      </div>
     </div>
   </footer>
 
-  <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
-    <i class="fa fa-arrow-up"></i>
+  <button id="back-to-top" class="back-to-top" aria-label="回到顶部">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 19V5m-7 7l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </button>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    const backToTop = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        navbar.classList.add('nav-scrolled');
-        backToTop.classList.remove('opacity-0', 'invisible');
-        backToTop.classList.add('opacity-100', 'visible');
-      } else {
-        navbar.classList.remove('nav-scrolled');
-        backToTop.classList.add('opacity-0', 'invisible');
-        backToTop.classList.remove('opacity-100', 'visible');
-      }
-    });
-    
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-      const icon = menuToggle.querySelector('i');
-      if (icon.classList.contains('fa-bars')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
-    
-    const mobileMenuItems = mobileMenu.querySelectorAll('a');
-    mobileMenuItems.forEach(item => {
-      item.addEventListener('click', function() {
-        mobileMenu.classList.add('hidden');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      });
-    });
-    
-    backToTop.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  </script>
-
-    </body></html>
+  <script src="script.js"></script>
+</body>
+</html>
