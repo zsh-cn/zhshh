@@ -152,4 +152,29 @@
 
   onScroll();
 
+  function loadExternalIcons() {
+    var extIcons = document.querySelectorAll('.ext-icon[data-src]');
+    extIcons.forEach(function (img) {
+      var src = img.getAttribute('data-src');
+      if (!src) return;
+      var tempImg = new Image();
+      tempImg.onload = function () {
+        img.src = src;
+        img.removeAttribute('data-src');
+      };
+      tempImg.onerror = function () {
+        img.removeAttribute('data-src');
+      };
+      tempImg.src = src;
+    });
+  }
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadExternalIcons, { timeout: 2000 });
+  } else {
+    window.addEventListener('load', function () {
+      setTimeout(loadExternalIcons, 100);
+    });
+  }
+
 })();
