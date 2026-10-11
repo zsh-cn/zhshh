@@ -152,28 +152,74 @@
 
   onScroll();
 
-  function loadExternalIcons() {
-    var extIcons = document.querySelectorAll('.ext-icon[data-src]');
-    extIcons.forEach(function (img) {
-      var src = img.getAttribute('data-src');
-      if (!src) return;
-      var tempImg = new Image();
-      tempImg.onload = function () {
-        img.src = src;
-        img.removeAttribute('data-src');
-      };
-      tempImg.onerror = function () {
-        img.removeAttribute('data-src');
-      };
-      tempImg.src = src;
-    });
-  }
+  var extIcons = document.querySelectorAll('.ext-icon[data-src]');
 
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadExternalIcons, { timeout: 2000 });
-  } else {
+  if (extIcons.length && 'IntersectionObserver' in window) {
+    var iconLoadQueue = [];
+    var isProcessingQueue = false;
+    var queueInterval = 300;
+
+    function processQueue() {
+      if (isProcessingQueue || iconLoadQueue.length === 0) return;
+      isProcessingQueue = true;
+
+      var next = iconLoadQueue.shift();
+      var src = next.getAttribute('data-src');
+      if (!src) {
+        isProcessingQueue = false;
+        processQueue();
+        return;
+      }
+
+      next.src = src;
+      next.removeAttribute('data-src');
+
+      next.onload = function () {
+        isProcessingQueue = false;
+        if (iconLoadQueue.length > 0) {
+          setTimeout(processQueue, queueInterval);
+        }
+      };
+
+      next.onerror = function () {
+        next.removeAttribute('data-src');
+        isProcessingQueue = false;
+        if (iconLoadQueue.length > 0) {
+          setTimeout(processQueue, queueInterval);
+        }
+      };
+
+      if (iconLoadQueue.length === 0) {
+        isProcessingQueue = false;
+      }
+    }
+
+    var iconObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          iconLoadQueue.push(entry.target);
+          iconObserver.unobserve(entry.target);
+          processQueue();
+        }
+      });
+    }, {
+      rootMargin: '200px 0px 200px 0px',
+      threshold: 0
+    });
+
+    extIcons.forEach(function (img) {
+      iconObserver.observe(img);
+    });
+  } else if (extIcons.length) {
     window.addEventListener('load', function () {
-      setTimeout(loadExternalIcons, 100);
+      setTimeout(function () {
+        extIcons.forEach(function (img) {
+          var src = img.getAttribute('data-src');
+          if (!src) return;
+          img.src = src;
+          img.removeAttribute('data-src');
+        });
+      }, 200);
     });
   }
 
