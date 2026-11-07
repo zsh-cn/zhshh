@@ -393,9 +393,12 @@ img {
   .mobile-menu {
     display: grid;
     grid-template-rows: minmax(0, 0fr);
-    transition: grid-template-rows var(--dur-slow) var(--ease-fluent);
+    transition: grid-template-rows var(--dur-slow) var(--ease-fluent),
+                box-shadow var(--dur-normal) var(--ease-fluent),
+                margin-top var(--dur-slow) var(--ease-fluent);
     overflow: hidden;
     visibility: hidden;
+    border-radius: var(--radius-lg);
   }
 
   .mobile-menu > div {
@@ -403,18 +406,17 @@ img {
     background: var(--acrylic-fill-strong);
     backdrop-filter: var(--acrylic-blur);
     -webkit-backdrop-filter: var(--acrylic-blur);
-    border-radius: var(--radius-lg);
+    border-radius: inherit;
     border: 1px solid var(--stroke-card);
-    box-shadow: var(--shadow-dialog);
-    margin-top: 0.5rem;
     padding: 0.5rem;
-    transform-origin: top center;
   }
 
   .mobile-menu.open {
     grid-template-rows: minmax(0, 1fr);
-    padding-bottom: 0.75rem;
     visibility: visible;
+    margin-top: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06),
+                0 10px 24px -6px rgba(0, 0, 0, 0.16);
   }
 
   .mobile-menu a {
